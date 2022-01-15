@@ -1,0 +1,656 @@
+from distutils import command 
+from string import whitespace
+import tkinter as tk
+import random
+import math
+import time
+turns=0
+difficultyh=2
+difficultye=1
+sussybaka=0
+sussycat=0
+sussypong=0
+sussyprune=0
+ 
+
+window = tk.Tk()
+
+greeting = tk.Label(
+    text="CHOOSE Difficulty",
+    foreground="white",
+    bg="black",
+)
+window.attributes("-toolwindow", True)
+def numberguess1():
+    global sussybaka
+    sussybaka=1
+    window.destroy()
+def numberguess2():
+    global sussybaka
+    sussybaka=2
+    window.destroy()
+def numberguess3():
+    global sussybaka
+    sussybaka=3
+    window.destroy()
+def numberguess4():
+    global sussybaka
+    sussybaka=4
+    window.destroy()
+def numberguess5():
+    global sussybaka
+    sussybaka=5
+    window.destroy()
+def numberguess6():
+    global sussybaka
+    sussybaka=6
+    window.destroy()
+def numberguess7():
+    global sussybaka
+    sussybaka=7
+    window.destroy()
+def numberguess8():
+    global sussybaka
+    sussybaka=8
+    window.destroy()
+def numberguess9():
+    global sussybaka
+    sussybaka=9
+    window.destroy()
+def number2guess1():
+    global sussycat
+    sussycat=1
+    window.destroy()
+def number2guess2():
+    global sussycat
+    sussycat=2
+    window.destroy()
+def number2guess3():
+    global sussycat
+    sussycat=3
+    window.destroy()
+def number2guess4():
+    global sussycat
+    sussycat=4
+    window.destroy()
+def number2guess5():
+    global sussycat
+    sussycat=5
+    window.destroy()
+def number2guess6():
+    global sussycat
+    sussycat=6
+    window.destroy()
+def number2guess7():
+    global sussycat
+    sussycat=7
+    window.destroy()
+def number2guess8():
+    global sussycat
+    sussycat=8
+    window.destroy()
+def number2guess9():
+    global sussycat
+    sussycat=9
+    window.destroy()
+def number3guess1():
+    global sussyprune
+    sussyprune=1
+    window.destroy()
+def number3guess2():
+    global sussyprune
+    sussyprune=2
+    window.destroy()
+def number3guess3():
+    global sussyprune
+    sussyprune=3
+    window.destroy()
+def number3guess4():
+    global sussyprune
+    sussyprune=4
+    window.destroy()
+def number3guess5():
+    global sussyprune
+    sussyprune=5
+    window.destroy()
+def number3guess6():
+    global sussyprune
+    sussyprune=6
+    window.destroy()
+def number3guess7():
+    global sussyprune
+    sussyprune=7
+    window.destroy()
+def number3guess8():
+    global sussyprune
+    sussyprune=8
+    window.destroy()
+def number3guess9():
+    global sussyprune
+    sussyprune=9
+    window.destroy()
+def number4guess1():
+    global sussypong
+    sussypong=1
+    window.destroy()
+def number4guess2():
+    global sussypong
+    sussypong=2
+    window.destroy()
+def number4guess3():
+    global sussypong
+    sussypong=3
+    window.destroy()
+def number4guess4():
+    global sussypong
+    sussypong=4
+    window.destroy()
+def number4guess5():
+    global sussypong
+    sussypong=5
+    window.destroy()
+def number4guess6():
+    global sussypong
+    sussypong=6
+    window.destroy()
+def number4guess7():
+    global sussypong
+    sussypong=7
+    window.destroy()
+def number4guess8():
+    global sussypong
+    sussypong=8
+    window.destroy()
+def number4guess9():
+    global sussypong
+    sussypong = 9
+    window.destroy()
+difficulty=0
+def difficulty1():
+    global difficulty
+    difficulty = 1
+    window.destroy()
+
+ 
+
+def difficulty2():
+    global difficulty
+    difficulty = 2
+    window.destroy()
+greeting.pack()
+difficultyeasy = tk.Button(
+    text="EASY",
+    width=25,
+    height=5,
+    foreground="green",
+    background="black",
+    command=difficulty1,
+)
+difficultyeasy.pack()
+difficultyhard = tk.Button(
+    text="HARD",
+    width=25,
+    height=5,
+    fg="red",
+    bg="black",
+    command=difficulty2,
+)
+difficultyhard.pack()
+window.mainloop()
+
+ 
+
+randomnumber = [random.randint(1,9),random.randint(1,9),random.randint(1,9),random.randint(1,9)]
+print("GUESS THE NUMBERS (1-9)")
+winner=4
+
+ 
+
+if (difficulty==1):
+    print("Difficulty Easy")
+else:
+    print("Difficulty Hard")
+
+ 
+
+for i in range(10):
+    position1 = 0
+    position2 = 0
+    position3 = 0
+    position4 = 0
+    correct=0
+    window = tk.Tk()
+
+    number1 = tk.Label(
+        text="Guess Number 1",
+        fg="white",
+        bg="black"
+    )
+    number1.pack(side=tk.TOP)
+    n1input1 = tk.Button(
+        window,
+        text = "1",
+        width = 10,
+        height = 5,
+        fg="white",
+        bg="black",
+        command=numberguess1,
+    )
+    n1input1.place(x=500, y=25)
+    n1input2 = tk.Button(
+        text = "2",
+        width = 10,
+        height = 5,
+        fg="white",
+        bg="black",
+        command=numberguess2,
+    )
+    n1input2.place(x=600, y=25)
+    n1input3 = tk.Button(
+        text="3",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=numberguess3,
+    )
+    n1input3.place(x=700, y=25)
+    n1input4 = tk.Button(
+        text="4",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=numberguess4,
+    )    
+    n1input4.place(x=500, y=125)
+    n1input5 = tk.Button(
+        text="5",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=numberguess5,
+    )
+    n1input5.place(x=600, y=125)
+    n1input6 = tk.Button(
+        text="6",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=numberguess6,
+    )
+    n1input6.place(x=700, y=125)
+    n1input7 = tk.Button(
+        text="7",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=numberguess7,
+    )
+    n1input7.place(x=500, y=225)
+    n1input8 = tk.Button(
+        text="8",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=numberguess8,
+    )
+    n1input8.place(x=600, y=225)
+    n1input9 = tk.Button(
+        text="9",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=numberguess9,
+    )
+
+    n1input9.place(x=700, y=225)
+    window.attributes("-toolwindow", True)
+    window.attributes("-fullscreen",True)
+    window.mainloop()
+
+    if (sussybaka == randomnumber[0]):
+        correct = correct + 1
+        position1=position1 +1
+
+    window = tk.Tk()
+    number1 = tk.Label(
+        text="Guess Number 2",
+        fg="white",
+        bg="black",
+    )
+    number1.pack(side=tk.TOP)
+    n1input1 = tk.Button(
+        window,
+        text = "1",
+        width = 10,
+        height = 5,
+        fg="white",
+        bg="black",
+        command=number2guess1,
+    )
+    n1input1.place(x=500, y=25)
+    n1input2 = tk.Button(
+        text = "2",
+        width = 10,
+        height = 5,
+        fg="white",
+        bg="black",
+        command=number2guess2,
+    )
+    n1input2.place(x=600, y=25)
+    n1input3 = tk.Button(
+        text="3",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number2guess3,
+    )
+    n1input3.place(x=700, y=25)
+    n1input4 = tk.Button(
+        text="4",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number2guess4,
+    )    
+    n1input4.place(x=500, y=125)
+    n1input5 = tk.Button(
+        text="5",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number2guess5,
+    )
+    n1input5.place(x=600, y=125)
+    n1input6 = tk.Button(
+        text="6",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number2guess6,
+    )
+    n1input6.place(x=700, y=125)
+    n1input7 = tk.Button(
+        text="7",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number2guess7,
+    )
+    n1input7.place(x=500, y=225)
+    n1input8 = tk.Button(
+        text="8",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number2guess8,
+    )
+    n1input8.place(x=600, y=225)
+    n1input9 = tk.Button(
+        text="9",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number2guess9,
+    )
+
+    n1input9.place(x=700, y=225)
+    window.attributes("-toolwindow", True)
+    window.attributes("-fullscreen",True)
+    window.mainloop()
+
+    if (sussycat == randomnumber[1]):
+        correct = correct + 1
+        position2 = position2 +1
+
+    window = tk.Tk()
+
+    number1 = tk.Label(
+        text="Guess Number 3",
+        fg="white",
+        bg="black"
+    )
+    number1.pack(side=tk.TOP)
+    n1input1 = tk.Button(
+        window,
+        text = "1",
+        width = 10,
+        height = 5,
+        fg="white",
+        bg="black",
+        command=number3guess1,
+    )
+    n1input1.place(x=500, y=25)
+    n1input2 = tk.Button(
+        text = "2",
+        width = 10,
+        height = 5,
+        fg="white",
+        bg="black",
+        command=number3guess2,
+    )
+    n1input2.place(x=600, y=25)
+    n1input3 = tk.Button(
+        text="3",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number3guess3,
+    )
+    n1input3.place(x=700, y=25)
+    n1input4 = tk.Button(
+        text="4",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number3guess4,
+    )    
+    n1input4.place(x=500, y=125)
+    n1input5 = tk.Button(
+        text="5",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number3guess5,
+    )
+    n1input5.place(x=600, y=125)
+    n1input6 = tk.Button(
+        text="6",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number3guess6,
+    )
+    n1input6.place(x=700, y=125)
+    n1input7 = tk.Button(
+        text="7",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number3guess7,
+    )
+    n1input7.place(x=500, y=225)
+    n1input8 = tk.Button(
+        text="8",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number3guess8,
+    )
+    n1input8.place(x=600, y=225)
+    n1input9 = tk.Button(
+        text="9",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number3guess9,
+    )
+    n1input9.place(x=700, y=225)
+    window.attributes("-toolwindow", True)
+    window.attributes("-fullscreen",True)
+    window.mainloop()
+
+    if (sussyprune == randomnumber[2]):
+        correct = correct + 1
+        position3 = position3 + 1
+
+    window = tk.Tk()
+
+    number1 = tk.Label(
+        text="Guess Number 4",
+        fg="white",
+        bg="black"
+    )
+    number1.pack(side=tk.TOP)
+    n1input1 = tk.Button(
+        window,
+        text = "1",
+        width = 10,
+        height = 5,
+        fg="white",
+        bg="black",
+        command=number4guess1,
+    )
+    n1input1.place(x=500, y=25)
+    n1input2 = tk.Button(
+        text = "2",
+        width = 10,
+        height = 5,
+        fg="white",
+        bg="black",
+        command=number4guess2,
+    )
+    n1input2.place(x=600, y=25)
+    n1input3 = tk.Button(
+        text="3",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number4guess3,
+    )
+    n1input3.place(x=700, y=25)
+    n1input4 = tk.Button(
+        text="4",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number4guess4,
+    )    
+    n1input4.place(x=500, y=125)
+    n1input5 = tk.Button(
+        text="5",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number4guess5,
+    )
+    n1input5.place(x=600, y=125)
+    n1input6 = tk.Button(
+        text="6",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number4guess6,
+    )
+    n1input6.place(x=700, y=125)
+    n1input7 = tk.Button(
+        text="7",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number4guess7,
+    )
+    n1input7.place(x=500, y=225)
+    n1input8 = tk.Button(
+        text="8",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number4guess8,
+    )
+    n1input8.place(x=600, y=225)
+    n1input9 = tk.Button(
+        text="9",
+        width=10,
+        height=5,
+        fg="white",
+        bg="black",
+        command=number4guess9,
+    )
+    n1input9.place(x=700, y=225)
+    window.attributes("-toolwindow", True)
+    window.attributes("-fullscreen",True)
+
+    window.mainloop()
+
+    if (sussypong == randomnumber[3]):
+        correct = correct + 1
+        position4 = position4 + 1
+
+
+    if (difficulty==1):
+        if (position1 == 1):
+            print("\n\nPosition 1 -- Correct")
+        else:
+            print("\n\nPosition 1 -- Incorrect")
+
+        if (position2 == 1):
+            print("\n\nPosition 2 -- Correct")
+        else:
+            print("\n\nPosition 2 -- Incorrect")
+
+        if (position3 == 1):
+            print("\n\nPosition 3 -- Correct")
+        else:
+            print("\n\nPosition 3 -- Incorrect")
+
+        if (position4 == 1):
+            print("\n\nPosition 4 -- Correct")
+        else:
+            print("\n\nPosition 4 -- Incorrect")
+
+
+
+    if (correct==winner):
+        print("\nWell done\nYou wasted 3 things\n\n\nTime\n\nElectricity\n\nBrain Power\n")
+        exit()
+    print("\nYou Got", correct, "Correct")
+
+    time.sleep(3)
+
+
+    if (correct==3):
+        print("\nsoo close, keep it up!")
+    turns = turns+1
+if ((turns>=5) and (correct<=2)):
+    print("\n\nJUST GIVE UP RIGHT NOW\nSTOP BEFORE YOU WASTE YOUR LIFE")
+    print("\n The Numbers Were ---- ", randomnumber)
+    exit()
+if ((turns==10) and (correct==3)):
+    print("\n\nSo close yet so far...")
